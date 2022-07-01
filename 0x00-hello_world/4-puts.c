@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-=======
-#include<stdio.h>
+#include <stdio.h>
+
 /**
- * main Entry point
- * Return: 0 if successful
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
  */
-int main(void) {
-	puts("\"Programming is like building a multilingual puzzle");
-	return (0);
+int main(void)
+{
+    return (0);
 }
->>>>>>> 2b40602228e33076d4e93879d1d48479eaa36c6f
