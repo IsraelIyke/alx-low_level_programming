@@ -4,13 +4,19 @@
  * Pointer
  * 
  * @s: pointer to int
+ * Return: 0 always
  */
 
 int _strlen(char *s)
 {
+	int i;
 
-    char a;
+	i = 0;
 
-    *s = &a;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
 
+	return (i);
 }
