@@ -1,57 +1,50 @@
+#include <stdlib.h>
 #include "main.h"
 
 /**
- * _memcpy - copy memory data from src to dest
- * @dest: memory destination
- * @src: memory source
- * @n: size of new memory
- */
-void _memcpy(void *dest, void *src, size_t n)
-{
-    size_t i;
-    char *csrc = (char *)src;
-    char *cdest = (char *)dest;
-
-    for (i = 0; i < n; i++)
-        cdest[i] = csrc[i];
-}
-
-/**
  * *_realloc - reallocates a memory block using malloc and free
- * @ptr: array length
- * @old_size: size of old memory
- * @new_size: size of new memory
- * Return: pointer to new memory
+ * @ptr: pointer to the memory previsouly allocated by malloc
+ * @old_size: size of the allocated memory for ptr
+ * @new_size: new size of the new memory block
+ *
+ * Return: pointer to the newly allocated memory block
  */
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
+    char *ptr1;
+    char *old_ptr;
+    unsigned int i;
 
-    void *newPtr;
-    if (new_size == 0)
+    if (new_size == old_size)
+        return (ptr);
+
+    if (new_size == 0 && ptr)
     {
-        if (ptr != NULL)
-            free(ptr);
+        free(ptr);
         return (NULL);
     }
-    else if (!ptr)
-    {
+
+    if (!ptr)
         return (malloc(new_size));
-    }
-    else if (new_size <= old_size)
+
+    ptr1 = malloc(new_size);
+    if (!ptr1)
+        return (NULL);
+
+    old_ptr = ptr;
+
+    if (new_size < old_size)
     {
-        return (ptr);
-    }
-    else
-    {
-        newPtr = malloc(new_size);
-        if (newPtr)
-        {
-            _memcpy(newPtr, ptr, old_size);
-            free(ptr);
-        }
-        return (newPtr);
+        for (i = 0; i < new_size; i++)
+            ptr1[i] = old_ptr[i];
     }
 
-    return (0);
+    if (new_size > old_size)
+    {
+        for (i = 0; i < old_size; i++)
+            ptr1[i] = old_ptr[i];
+    }
+
+    free(ptr);
+    return (ptr1);
 }
