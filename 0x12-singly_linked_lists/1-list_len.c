@@ -3,8 +3,10 @@
 #include "lists.h"
 
 /**
- * @brief 
+ * list_len - counts the list
+ * @h: argument pointer
  * 
+ * Return: count
  */
 
 size_t list_len(const list_t *h)
