@@ -9,22 +9,22 @@
 
 list_t *add_node(list_t **head, const char *str)
 {
-list_t *ptr = head;
+list_t *ptr;
 int i;
+
+ptr = malloc(sizeof(list_t));
 
 if (head == NULL)
 {
 	ptr->str = str;
 	ptr->next = NULL;
+	*head = ptr;
 }
 else
 {
-	for (i = 0; ptr->next == NULL)
-	{
-		ptr->str = str;
-		ptr = ptr->next;
-	}
-ptr->next = NULL;
+ptr->str = str;
+ptr->next = head->next;
+head = ptr;
 }
 return (ptr);
 }
