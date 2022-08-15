@@ -5,7 +5,7 @@
 /**
  * list_len - counts the list
  * @h: argument pointer
- * 
+ *
  * Return: count
  */
 
@@ -19,5 +19,7 @@ count++;
 h = h->next;
 }
 
-return count;
+return (count);
 }
+
+
