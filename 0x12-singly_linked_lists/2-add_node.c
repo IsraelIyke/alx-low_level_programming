@@ -26,6 +26,6 @@ else
 	}
 ptr->next = NULL;
 }
-return (head);
+return (ptr);
 }
 
